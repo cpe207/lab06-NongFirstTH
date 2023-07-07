@@ -3,14 +3,14 @@ const axios = require("axios");
 const getTodo = async (todoId) => {
   try{
     const resp = await axios.get("https://jsonplaceholder.typicode.com/todos/"+todoId)
-    const res2 = await axios.get("https://jsonplaceholder.typicode.com/users/"+resp.data.userId)
+    const resp2 = await axios.get("https://jsonplaceholder.typicode.com/users/"+resp.data.userId)
     const result = {}
-    /*const owner = resp2.data.name
+    const owner = resp2.data.name
     const title = resp.data.title
-    const completed = resp.data.completed*/
-    result.owner = res2.data.name
-    result.title = resp.data.title
-    result.completed = resp.data.completed
+    const completed = resp.data.completed
+    result.owner = owner
+    result.title = title
+    result.completed = completed
   return  result
   }catch (error){
     return 'INVALID TODO ID'
