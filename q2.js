@@ -5,12 +5,12 @@ const getTodo = async (todoId) => {
     const resp = await axios.get("https://jsonplaceholder.typicode.com/todos/"+todoId)
     const resp2 = await axios.get("https://jsonplaceholder.typicode.com/users/"+resp.data.userId)
     const result = {}
-    const owner = resp2.data.name
+    /*const owner = resp2.data.name
     const title = resp.data.title
-    const completed = resp.data.completed
-    result.owner = owner
-    result.title = title
-    result.completed = completed
+    const completed = resp.data.completed*/
+    result.owner = resp2.data.name
+    result.title = resp.data.title
+    result.completed = resp.data.completed
   return  result
   }catch (error){
     return 'INVALID TODO ID'
